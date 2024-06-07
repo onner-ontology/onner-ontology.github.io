@@ -6,7 +6,7 @@ Options -MultiViews
 AddType application/rdf+xml .rdf
 AddType application/rdf+xml .owl
 AddType text/turtle .ttl
-AddType application/n-triples .n3
+AddType text/n-triples .n3
 AddType application/ld+json .jsonld
 # Rewrite engine setup
 RewriteEngine On
@@ -31,7 +31,7 @@ RewriteCond %{HTTP_ACCEPT} application/rdf\+xml
 RewriteRule ^$ onner-full.owl [R=303,L]
 
 # Rewrite rule to serve N-Triples content from the vocabulary URI if requested
-RewriteCond %{HTTP_ACCEPT} application/n-triples
+RewriteCond %{HTTP_ACCEPT} text/n-triples
 RewriteRule ^$ onner-full.nt [R=303,L]
 
 # Rewrite rule to serve TTL content from the vocabulary URI if requested
