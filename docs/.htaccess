@@ -10,6 +10,8 @@ AddType text/n-triples .n3
 AddType application/ld+json .jsonld
 # Rewrite engine setup
 RewriteEngine On
+# Redirect to onner-full.html
+RewriteRule ^index\.html$ /onner-full.html [R=301,L]
 #Change the path to the folder here
 RewriteBase /docs 
 
