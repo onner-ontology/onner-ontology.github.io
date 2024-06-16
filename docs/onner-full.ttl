@@ -13,7 +13,7 @@
                                                                                   "Umayer Reza - https://orcid.org/0000-0003-4013-3513"@en ,
                                                                                   "Xuelian Zhang - https://orcid.org/0000-0002-0708-4070"@en ;
                                                <http://purl.org/dc/terms/description> "OnNER is designed to capture and represent named entities — terms identified and labeled using named entity recognition (NER) methods — along with relevant semantic context, such as their location within a document, from scholarly publications. The ontology is aligned with Basic Formal Ontology (BFO) and Information Artifact Ontology (IAO), and it also incorporates relevant high-level concepts from Relation Ontology (RO), Ontology for Biomedical Investigations (OBI), and NCBI organismal classification (NCBITaxon)."@en ;
-                                               <http://purl.org/dc/terms/identifier> "Onner"^^<http://purl.org/spatialai/onner/onner-full> ;
+                                               <http://purl.org/dc/terms/identifier> <http://purl.org/spatialai/onner/onner-full> ;
                                                <http://purl.org/dc/terms/bibliographicCitation> "Author Name. (2024). Title of the Paper. Conference Name, 2024."^^<http://www.w3.org/2001/XMLSchema#string> ;
                                                <http://purl.org/dc/terms/issued> "2024-05-24"^^xsd:date ;
                                                <http://purl.org/dc/terms/license> <https://creativecommons.org/licenses/by/4.0/> ;
