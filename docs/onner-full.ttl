@@ -33,6 +33,8 @@
                                                              "Named Entity Representation" ,
                                                              "Scholarly Publication" ;
                                              dcterms:title "Ontology for Named Entity Representation in Scholarly Publications (OnNER)"@en ;
+					     dcterms:source <http://example.com/source> ;
+                                             dcterms:identifier "10.1234/5678"^^xsd:anyURI ;
                                              owl:versionInfo "1.0"@en .
 
 #################################################################
