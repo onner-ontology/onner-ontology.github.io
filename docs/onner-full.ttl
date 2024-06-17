@@ -12,9 +12,10 @@
 @prefix doco: <http://purl.org/spar/doco#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix fabio: <http://purl.org/spar/fabio#> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix bibo: <http://purl.org/ontology/bibo/> .
 @prefix onner: <http://purl.org/spatialai/onner/onner-full#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
 @base <http://purl.org/spatialai/onner/onner-full#> .
 
 <http://purl.org/spatialai/onner/onner-full> rdf:type owl:Ontology ;
@@ -34,9 +35,11 @@
                                                              "Named Entity Representation" ,
                                                              "Scholarly Publication" ;
                                              dcterms:title "Ontology for Named Entity Representation in Scholarly Publications (OnNER)"@en ;
-					     bibo:doi "10.1234/5678"^^xsd:string ;
+                                             bibo:doi "DOI will be added here"^^xsd:string ;
+					     bibo:status "stable"^^xsd:string ;
 					     dcterms:source <http://example.com/source> ;
-                                             owl:versionInfo "1.0"@en .
+					     foaf:logo <http://example.com/ontology_logo.png> ;
+					     owl:versionInfo "1.0"@en .
 
 #################################################################
 #    Annotation properties
