@@ -12,8 +12,8 @@
 @prefix doco: <http://purl.org/spar/doco#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix fabio: <http://purl.org/spar/fabio#> .
-@prefix onner: <http://purl.org/spatialai/onner/onner-full#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix onner: <http://purl.org/spatialai/onner/onner-full#> .
 @base <http://purl.org/spatialai/onner/onner-full#> .
 
 <http://purl.org/spatialai/onner/onner-full> rdf:type owl:Ontology ;
