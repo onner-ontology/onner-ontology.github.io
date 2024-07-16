@@ -1,8 +1,207 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>OnNER</title>
-    <!-- Redirecting to onner-full.html -->
-    <meta http-equiv="refresh" content="0; url =https://onner-ontology.github.io/onner-full.html" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Umayer Reza</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            font-family: Verdana, sans-serif;
+        }
+        .underline {
+            text-decoration: underline;
+        }
+        .container {
+            display: flex;
+            flex: 1;
+        }
+        .left-panel {
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 15%;
+            background-color: #f4f4f4;
+            padding: 15px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            transition: width 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .toggle-btn {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            font-size: 1.5rem;
+            background: #cccccc;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: background 0.3s ease;
+        }
+        .toggle-btn:hover {
+            background: #aaaaaa;
+        }
+        .left-panel.minimized {
+            width: 34px;
+            padding: 15px 5px;
+            background-color: #fff;
+            box-shadow: none;
+        }
+        .left-panel.minimized .content, .left-panel.minimized footer {
+            display: none;
+        }
+        .left-panel .content {
+            flex: 1;
+            margin-top: 30px;
+        }
+        .left-panel a {
+            display: block;
+            padding: 10px 0;
+            color: #333;
+            text-decoration: none;
+        }
+        .left-panel a:hover {
+            background-color: #ddd;
+        }
+        .left-panel a.active {
+            background-color: #aaa;
+            color: white;
+        }
+        .right-panel {
+            margin-left: 16.5%;
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            transition: margin-left 0.3s ease;
+            background-color: #fff;
+        }
+        .left-panel.minimized ~ .right-panel {
+            margin-left: 34px;
+        }
+        .right-panel:not(.left-panel.minimized + .right-panel) {
+            border-left: 2px solid rgba(0,0,0,0.1);
+        }
+        footer {
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 5px;
+            font-size: 12px;
+        }
+        .left-panel footer {
+            margin-top: auto;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .left-panel {
+                width: 100%;
+                position: relative;
+                height: auto;
+                box-shadow: none;
+            }
+            .left-panel.minimized {
+                width: 100%;
+                padding: 15px 5px;
+                background-color: #fff;
+                box-shadow: none;
+            }
+            .left-panel.minimized .content, .left-panel.minimized footer {
+                display: none;
+            }
+            .right-panel {
+                margin-left: 0;
+            }
+            .left-panel.minimized ~ .right-panel {
+                margin-left: 0;
+            }
+            .toggle-btn {
+                right: 10px;
+            }
+        }
+    </style>
 </head>
+<body>
+    <div class="container">
+        <div class="left-panel" id="leftPanel">
+            <button id="toggleLeftPanel" class="toggle-btn">&equiv;</button>
+            <div class="content">
+                <h3>>_</h3>
+                <a href="#about">ABOUT</a>
+                <a href="#research">RESEARCH</a>
+                <a href="#experience">EXPERIENCE</a>
+                <a href="#certification">CERTIFICATION</a>
+                <a href="#blog">BLOG</a>
+                <a href="#links">LINKS</a>
+            </div>
+            <footer>
+                &copy; 2024 Umayer Reza. All rights reserved.
+            </footer>
+        </div>
+        <div class="right-panel">
+            <h3 id="about" style="text-align: center;">Umayer Reza's Personal Site</h3>
+            <p>I am currently pursuing a Ph.D. in Spatial Information Science and Engineering at the School of Computing and Information Science, University of Maine (UMaine). In addition to my studies, I work with Dr. Torsten Hahmann as a graduate research assistant at the Spatial Knowledge and Artificial Intelligence (SKAI) Lab. My research focuses on developing an ontology-guided named entity recognition (NER) model for the cellulos materials, which aims to contribute to the growth of a small hand-curated cellulose ontology. Before joining UMaine, I earned a B.S. in Computer Science and Engineering and an M.S. in Computer Science from American International University - Bangladesh (AIUB).</p>
+
+            <h3 id="research" style="text-align: center; background: #cccccc;">RESEARCH</h3>
+            <p>OK</p>
+
+            <h3 id="experience" style="text-align: center; background: #cccccc;">EXPERIENCE</h3>
+            <p>OK</p>
+            
+            <h3 id="certification" style="text-align: center; background: #cccccc;">CERTIFICATION</h3>
+            <p>OK</p>
+
+            <h3 id="blog" style="text-align: center; background: #cccccc;">BLOG</h3>
+            <p>OK</p>
+            
+            <h3 id="links" style="text-align: center; background: #cccccc;">LINKS</h3>
+            <p>OK</p>
+        </div>
+    </div>
+    <script>
+        const leftPanel = document.getElementById('leftPanel');
+        const toggleLeftPanelBtn = document.getElementById('toggleLeftPanel');
+        const tabs = document.querySelectorAll('.left-panel a');
+
+        // Function to check screen width and add minimized class if on mobile
+        function checkScreenWidth() {
+            if (window.innerWidth <= 768) {
+                leftPanel.classList.add('minimized');
+            } else {
+                leftPanel.classList.remove('minimized');
+            }
+        }
+
+        toggleLeftPanelBtn.addEventListener('click', function() {
+            leftPanel.classList.toggle('minimized');
+            if (leftPanel.classList.contains('minimized')) {
+                toggleLeftPanelBtn.innerHTML = '&equiv;';
+            } else {
+                toggleLeftPanelBtn.innerHTML = '&equiv;';
+            }
+        });
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                tabs.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Initial check on page load
+        checkScreenWidth();
+
+        // Check screen width on window resize
+        window.addEventListener('resize', checkScreenWidth);
+    </script>
+</body>
 </html>
